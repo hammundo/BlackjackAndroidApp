@@ -83,14 +83,70 @@ public class PlayerHandTest {
 
     @Test
     public void discardHand() {
+        final int expected = 0;
+        final int actual;
+
+        PlayerHand testHand = new PlayerHand();
+        Deck testDeck = new Deck();
+
+        testHand.addCardToHand(testDeck.aceOfSpades);
+        testHand.addCardToHand(testDeck.aceOfHearts);
+        testHand.addCardToHand(testDeck.aceOfClubs);
+        testHand.addCardToHand(testDeck.aceOfDiamonds);
+        testHand.discardHand();
+
+        actual = testHand.getCardCount();
+
+        Assert.assertEquals(actual, expected);
     }
 
     @Test
-    public void getAmountOfAcesInHand() {
+    public void getAmountOfAcesInHandNoAces() {
+        final int expected = 0;
+        final int actual;
+
+        PlayerHand testHand = new PlayerHand();
+        Deck testDeck = new Deck();
+
+        testHand.addCardToHand(testDeck.kingOfClubs);
+        testHand.addCardToHand(testDeck.kingOfHearts);
+
+        actual = testHand.getAmountOfAcesInHand();
+
+        Assert.assertEquals(actual, expected);
+    }
+
+    @Test
+    public void getAmountOfAcesInHandManyAces() {
+        final int expected = 4;
+        final int actual;
+
+        PlayerHand testHand = new PlayerHand();
+        Deck testDeck = new Deck();
+
+        testHand.addCardToHand(testDeck.aceOfSpades);
+        testHand.addCardToHand(testDeck.aceOfHearts);
+        testHand.addCardToHand(testDeck.aceOfClubs);
+        testHand.addCardToHand(testDeck.aceOfDiamonds);
+
+        actual = testHand.getAmountOfAcesInHand();
+
+        Assert.assertEquals(actual, expected);
     }
 
     @Test
     public void getCardPathFromIndex() {
+        final String expected = "@drawable/ace_of_hearts";
+        final String actual;
+
+        PlayerHand testHand = new PlayerHand();
+        Deck testDeck = new Deck();
+
+        testHand.addCardToHand(testDeck.aceOfHearts);
+
+        actual = testHand.getCardPathFromIndex(0);
+
+        Assert.assertEquals(actual, expected);
     }
 
 }
