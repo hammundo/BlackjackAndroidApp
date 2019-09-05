@@ -1,14 +1,7 @@
 package com.example.blackjack_android_app;
 
-import junit.extensions.RepeatedTest;
-
 import org.junit.Assert;
-import org.junit.Rule;
 import org.junit.Test;
-
-import java.lang.annotation.Repeatable;
-
-import static org.junit.Assert.*;
 
 public class DeckTest {
 

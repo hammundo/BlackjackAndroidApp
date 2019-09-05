@@ -46,6 +46,24 @@ public class PlayerHandTest {
     }
 
     @Test
+    public void calculateHandValueWithDoubleCards() {
+        final int expected = 14;
+        final int actual;
+
+        PlayerHand testHand = new PlayerHand();
+        Deck testDeck = new Deck();
+
+        // == NOTE =
+        // There should be no way for the player to have 2 of the same card, testing regardless.
+        testHand.addCardToHand(testDeck.sevenOfHearts);
+        testHand.addCardToHand(testDeck.sevenOfHearts);
+
+        actual = testHand.getHandValue();
+
+        Assert.assertEquals(actual, expected);
+    }
+
+    @Test
     public void calculateHandValueCheckForBust() {
         final int expected = -1;
         final int actual;

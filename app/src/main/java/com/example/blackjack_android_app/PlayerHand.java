@@ -55,10 +55,19 @@ public class PlayerHand {
         this.handValue = value;
     }
 
-
-
+    // Remove card objects from the player hand and set the value of said hand to 0
     public void discardHand() {
         this.hand.clear();
+        this.handValue = 0;
+    }
+
+    // Checks to see if the value of hand is 21 or less and contains 5 card objects
+    public boolean isFiveCardTrick() {
+        if(hand.size() == 5 && handValue <= 21) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     // Return the amount of ace cards in the player hand by iterating though each index.
