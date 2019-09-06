@@ -23,7 +23,10 @@ public class PlayerHand {
     public void calculateHandValue() {
 
         // Create a temporary hand so that the cards are not moved in place.
-        ArrayList<Card> tempHand = hand;
+        ArrayList<Card> tempHand = new ArrayList<>();
+        for (Card c : hand) {
+            tempHand.add(c);
+        }
 
         // Sort the hand by highest to lowest value cards, with aces at the end of the list.
         Collections.sort(tempHand, (c1, c2) -> c1.getValue() - c2.getValue());
