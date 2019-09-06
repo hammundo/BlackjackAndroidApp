@@ -22,13 +22,16 @@ public class PlayerHand {
 
     public void calculateHandValue() {
 
+        // Create a temporary hand so that the cards are not moved in place.
+        ArrayList<Card> tempHand = hand;
+
         // Sort the hand by highest to lowest value cards, with aces at the end of the list.
-        Collections.sort(hand, (c1, c2) -> c1.getValue() - c2.getValue());
-        Collections.reverse(hand);
+        Collections.sort(tempHand, (c1, c2) -> c1.getValue() - c2.getValue());
+        Collections.reverse(tempHand);
 
         // Total the value of the hand, excluding aces.
         int value = 0;
-        for(Card c : hand) {
+        for(Card c : tempHand) {
             if(c.getValue() != 1) {
                 value += c.getValue();
             }
