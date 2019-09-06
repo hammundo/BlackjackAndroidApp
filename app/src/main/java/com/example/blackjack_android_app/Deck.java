@@ -125,7 +125,7 @@ public class Deck {
         deck.add(nineOfDiamonds);
         deck.add(tenOfDiamonds);
         deck.add(jackOfDiamonds);
-        deck.add(queenOfSpades);
+        deck.add(queenOfDiamonds);
         deck.add(kingOfDiamonds);
 
         // ADDING HEARTS

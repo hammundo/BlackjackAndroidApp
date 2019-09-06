@@ -9,7 +9,6 @@ public class PlayerHand {
     public ArrayList<Card> hand = new ArrayList<>();
     private int handValue;
 
-
     public PlayerHand() {
         this.handValue = 0;
     }
@@ -88,14 +87,11 @@ public class PlayerHand {
     }
 
     public int getHandValue() {
-        return handValue;
+        return this.handValue;
     }
 
     public int getCardCount() {
-        return hand.size();
+        return this.hand.size();
     }
-
-
-
 
 }
