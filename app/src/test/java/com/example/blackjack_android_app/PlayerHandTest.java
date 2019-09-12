@@ -3,8 +3,6 @@ package com.example.blackjack_android_app;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class PlayerHandTest {
 
     @Test
@@ -12,7 +10,7 @@ public class PlayerHandTest {
         final int expected = 5;
         final int actual;
 
-        PlayerHand testHand = new PlayerHand();
+        Hand testHand = new Hand();
         Deck testDeck = new Deck();
 
         testHand.addCardToHand(testDeck.aceOfClubs);
@@ -34,7 +32,7 @@ public class PlayerHandTest {
         final int expected = 21;
         final int actual;
 
-        PlayerHand testHand = new PlayerHand();
+        Hand testHand = new Hand();
         Deck testDeck = new Deck();
 
         testHand.addCardToHand(testDeck.aceOfSpades);
@@ -50,7 +48,7 @@ public class PlayerHandTest {
         final int expected = 14;
         final int actual;
 
-        PlayerHand testHand = new PlayerHand();
+        Hand testHand = new Hand();
         Deck testDeck = new Deck();
 
         // == NOTE =
@@ -68,7 +66,7 @@ public class PlayerHandTest {
         final int expected = -1;
         final int actual;
 
-        PlayerHand testHand = new PlayerHand();
+        Hand testHand = new Hand();
         Deck testDeck = new Deck();
 
         testHand.addCardToHand(testDeck.aceOfSpades);
@@ -86,7 +84,7 @@ public class PlayerHandTest {
         final int expected = 14;
         final int actual;
 
-        PlayerHand testHand = new PlayerHand();
+        Hand testHand = new Hand();
         Deck testDeck = new Deck();
 
         testHand.addCardToHand(testDeck.aceOfSpades);
@@ -104,7 +102,7 @@ public class PlayerHandTest {
         final int expected = 0;
         final int actual;
 
-        PlayerHand testHand = new PlayerHand();
+        Hand testHand = new Hand();
         Deck testDeck = new Deck();
 
         testHand.addCardToHand(testDeck.aceOfSpades);
@@ -123,7 +121,7 @@ public class PlayerHandTest {
         final int expected = 0;
         final int actual;
 
-        PlayerHand testHand = new PlayerHand();
+        Hand testHand = new Hand();
         Deck testDeck = new Deck();
 
         testHand.addCardToHand(testDeck.kingOfClubs);
@@ -139,7 +137,7 @@ public class PlayerHandTest {
         final int expected = 4;
         final int actual;
 
-        PlayerHand testHand = new PlayerHand();
+        Hand testHand = new Hand();
         Deck testDeck = new Deck();
 
         testHand.addCardToHand(testDeck.aceOfSpades);
@@ -157,7 +155,7 @@ public class PlayerHandTest {
         final String expected = "@drawable/ace_of_hearts";
         final String actual;
 
-        PlayerHand testHand = new PlayerHand();
+        Hand testHand = new Hand();
         Deck testDeck = new Deck();
 
         testHand.addCardToHand(testDeck.aceOfHearts);

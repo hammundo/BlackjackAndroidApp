@@ -3,13 +3,13 @@ package com.example.blackjack_android_app;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class PlayerHand {
+public class Hand {
 
     // Object properties
     public ArrayList<Card> hand = new ArrayList<>();
     private int handValue;
 
-    public PlayerHand() {
+    public Hand() {
         this.handValue = 0;
     }
 

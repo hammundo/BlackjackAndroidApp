@@ -15,9 +15,9 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     // Create class objects
-    Deck deck =  new Deck();
-    PlayerHand playerHand = new PlayerHand();
-    DealerHand dealerHand = new DealerHand();
+    private Deck deck =  new Deck();
+    private Hand playerHand = new Hand();
+    private Hand dealerHand = new Hand();
 
     // Text fields
     private TextView displayPlayerHandValue;

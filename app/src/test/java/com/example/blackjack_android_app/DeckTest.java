@@ -11,7 +11,7 @@ public class DeckTest {
         final int expected = 1;
         final int actual;
 
-        PlayerHand testHand = new PlayerHand();
+        Hand testHand = new Hand();
         Deck testDeck = new Deck();
 
         testDeck.reloadDeck();
@@ -28,7 +28,7 @@ public class DeckTest {
         final Card card1;
         final Card card2;
 
-        PlayerHand testHand = new PlayerHand();
+        Hand testHand = new Hand();
         Deck testDeck = new Deck();
 
         // Create and shuffle deck, then add 2 cards to the test hand.
