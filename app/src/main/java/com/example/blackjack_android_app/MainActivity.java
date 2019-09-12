@@ -334,21 +334,18 @@ public class MainActivity extends AppCompatActivity {
 
     private void win() {
         displayGameResultMessage(1);
-        //pauseApp();
         resetHandsAndDeck();
         gameSetUp();
     }
 
     private void lose() {
         displayGameResultMessage(2);
-        //pauseApp();
         resetHandsAndDeck();
         gameSetUp();
     }
 
     private void draw(){
         displayGameResultMessage(3);
-        //pauseApp();
         resetHandsAndDeck();
         gameSetUp();
     }
@@ -361,17 +358,18 @@ public class MainActivity extends AppCompatActivity {
         switch (i) {
             case 1:
                 // toast win
-                Toast winToast = Toast.makeText(context, "YOU WIN", duration);
+                Toast winToast = Toast.makeText(context, WIN_MSG, duration);
                 winToast.show();
                 break;
             case 2:
                 // toast lose
-                Toast loseToast = Toast.makeText(context, "YOU LOSE", duration);
+                Toast loseToast = Toast.makeText(context, LOSE_MSG, duration);
                 loseToast.show();
                 break;
             case 3:
                 // toast draws
-                Toast drawToast = Toast.makeText(context, "DRAW", duration);
+                Toast drawToast = Toast.makeText(context, DRAW_MSG, duration);
+                drawToast.show();
                 break;
         }
     }
