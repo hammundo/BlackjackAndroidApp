@@ -49,69 +49,62 @@ public class MainActivity extends AppCompatActivity {
         gameSetUp();
 
         // Hit button listener
-        View.OnClickListener hitButtonListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(playerHand.getCardCount() < 5 && playerHand.getHandValue() != -1) {
+        View.OnClickListener hitButtonListener =((View v) -> {
+            if(playerHand.getCardCount() < 5 && playerHand.getHandValue() != -1) {
 
-                    playRandomCardSlideSound();
-                    playerHand.addCardToHand(deck.deal());
+                playRandomCardSlideSound();
+                playerHand.addCardToHand(deck.deal());
 
-                    // Assign the newest card to the respective placeholder card and then draw the image
-                    switch (playerHand.getCardCount()) {
-                        case 3:
-                            ImageView placeHolderCard3 = findViewById(R.id.placeHolderCard3);
-                            int imageResourceCase3 = getResources().getIdentifier(playerHand.getCardPathFromIndex(2), null, PACKAGE_NAME);
-                            placeHolderCard3.setAlpha(1.0f);
-                            placeHolderCard3.setImageResource(imageResourceCase3);
-                            break;
-                        case 4:
-                            ImageView placeHolderCard4 = findViewById(R.id.placeHolderCard4);
-                            int imageResourceCase4 = getResources().getIdentifier(playerHand.getCardPathFromIndex(3), null, PACKAGE_NAME);
-                            placeHolderCard4.setAlpha(1.0f);
-                            placeHolderCard4.setImageResource(imageResourceCase4);
-                            break;
-                        case 5:
-                            ImageView placeHolderCard5 = findViewById(R.id.placeHolderCard5);
-                            int imageResourceCase5 = getResources().getIdentifier(playerHand.getCardPathFromIndex(4), null, PACKAGE_NAME);
-                            placeHolderCard5.setAlpha(1.0f);
-                            placeHolderCard5.setImageResource(imageResourceCase5);
-                            break;
-                    }
+                // Assign the newest card to the respective placeholder card and then draw the image
+                switch (playerHand.getCardCount()) {
+                    case 3:
+                        ImageView placeHolderCard3 = findViewById(R.id.placeHolderCard3);
+                        int imageResourceCase3 = getResources().getIdentifier(playerHand.getCardPathFromIndex(2), null, PACKAGE_NAME);
+                        placeHolderCard3.setAlpha(1.0f);
+                        placeHolderCard3.setImageResource(imageResourceCase3);
+                        break;
+                    case 4:
+                        ImageView placeHolderCard4 = findViewById(R.id.placeHolderCard4);
+                        int imageResourceCase4 = getResources().getIdentifier(playerHand.getCardPathFromIndex(3), null, PACKAGE_NAME);
+                        placeHolderCard4.setAlpha(1.0f);
+                        placeHolderCard4.setImageResource(imageResourceCase4);
+                        break;
+                    case 5:
+                        ImageView placeHolderCard5 = findViewById(R.id.placeHolderCard5);
+                        int imageResourceCase5 = getResources().getIdentifier(playerHand.getCardPathFromIndex(4), null, PACKAGE_NAME);
+                        placeHolderCard5.setAlpha(1.0f);
+                        placeHolderCard5.setImageResource(imageResourceCase5);
+                        break;
+                }
 
-                    // Update the display text that shows the value of cards held by the player
-                    if(playerHand.getHandValue() == -1) {
-                        // Bust
-                        displayPlayerHandValue.setText("BUST");
-                        lose();
-                    } else if(playerHand.getHandValue() == 21) {
-                        displayPlayerHandValue.setText("BLACKJACK");
-                        win();
-                    } else {
-                        displayPlayerHandValue.setText(Integer.toString(playerHand.getHandValue()));
-                    }
+                // Update the display text that shows the value of cards held by the player
+                if(playerHand.getHandValue() == -1) {
+                    // Bust
+                    displayPlayerHandValue.setText("BUST");
+                    lose();
+                } else if(playerHand.getHandValue() == 21) {
+                    displayPlayerHandValue.setText("BLACKJACK");
+                    win();
+                } else {
+                    displayPlayerHandValue.setText(Integer.toString(playerHand.getHandValue()));
                 }
             }
-        };
+        });
         hitButton.setOnClickListener(hitButtonListener);
 
         // Stick button listener
-        View.OnClickListener stickButtonListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        View.OnClickListener stickButtonListener = ((View v) -> {
+
                 // Disable the hit button
                 hitButton.setEnabled(false);
 
                 // Start the dealers turn
                 dealerMove();
-
-            }
-        };
+        });
         stickButton.setOnClickListener(stickButtonListener);
 
     }
 
-    // == PRIVATE METHODS ==
 
     // Deals the first two cards to the player, and the first card to the dealer face up.
     // Then deals the second card to the dealer but is drawn face down.
