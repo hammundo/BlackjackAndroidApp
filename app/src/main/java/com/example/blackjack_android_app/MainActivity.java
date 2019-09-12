@@ -14,24 +14,19 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    // Create class objects
     private Deck deck =  new Deck();
     private Hand playerHand = new Hand();
     private Hand dealerHand = new Hand();
 
-    // Text fields
     private TextView displayPlayerHandValue;
     private TextView displayDealerHandValue;
 
-    // Buttons
     private Button hitButton;
     private Button stickButton;
 
-    // Global string for package name
     public static String PACKAGE_NAME;
 
-    // Toast messages
-    public static final String WIN_MSG = "Congratulation! You Won!";
+    public static final String WIN_MSG = "Congratulations! You Won!";
     public static final String LOSE_MSG = "Better Luck Next Time!";
     public static final String DRAW_MSG = "DRAW!";
 
@@ -44,14 +39,13 @@ public class MainActivity extends AppCompatActivity {
         PACKAGE_NAME = getApplicationContext().getPackageName();
 
         // Initialise text fields
-        displayPlayerHandValue = (TextView) findViewById(R.id.textView_playerHandValue);
-        displayDealerHandValue = (TextView) findViewById(R.id.textView_dealerHandValue);
+        displayPlayerHandValue = findViewById(R.id.textView_playerHandValue);
+        displayDealerHandValue = findViewById(R.id.textView_dealerHandValue);
 
         // Initialise buttons
-        hitButton = (Button) findViewById(R.id.button_hit);
-        stickButton = (Button) findViewById(R.id.button_stick);
+        hitButton = findViewById(R.id.button_hit);
+        stickButton = findViewById(R.id.button_stick);
 
-        // Game loop begins here
         gameSetUp();
 
         // Hit button listener
@@ -66,19 +60,19 @@ public class MainActivity extends AppCompatActivity {
                     // Assign the newest card to the respective placeholder card and then draw the image
                     switch (playerHand.getCardCount()) {
                         case 3:
-                            ImageView placeHolderCard3 = (ImageView) findViewById(R.id.placeHolderCard3);
+                            ImageView placeHolderCard3 = findViewById(R.id.placeHolderCard3);
                             int imageResourceCase3 = getResources().getIdentifier(playerHand.getCardPathFromIndex(2), null, PACKAGE_NAME);
                             placeHolderCard3.setAlpha(1.0f);
                             placeHolderCard3.setImageResource(imageResourceCase3);
                             break;
                         case 4:
-                            ImageView placeHolderCard4 = (ImageView) findViewById(R.id.placeHolderCard4);
+                            ImageView placeHolderCard4 = findViewById(R.id.placeHolderCard4);
                             int imageResourceCase4 = getResources().getIdentifier(playerHand.getCardPathFromIndex(3), null, PACKAGE_NAME);
                             placeHolderCard4.setAlpha(1.0f);
                             placeHolderCard4.setImageResource(imageResourceCase4);
                             break;
                         case 5:
-                            ImageView placeHolderCard5 = (ImageView) findViewById(R.id.placeHolderCard5);
+                            ImageView placeHolderCard5 = findViewById(R.id.placeHolderCard5);
                             int imageResourceCase5 = getResources().getIdentifier(playerHand.getCardPathFromIndex(4), null, PACKAGE_NAME);
                             placeHolderCard5.setAlpha(1.0f);
                             placeHolderCard5.setImageResource(imageResourceCase5);
@@ -129,13 +123,13 @@ public class MainActivity extends AppCompatActivity {
         // == PLAYER SETUP ==
         // Card 1
         playerHand.addCardToHand(deck.deal());
-        ImageView placeHolderCard1 = (ImageView) findViewById(R.id.placeHolderCard1);
+        ImageView placeHolderCard1 = findViewById(R.id.placeHolderCard1);
         int imageResource = getResources().getIdentifier(playerHand.getCardPathFromIndex(0), null, PACKAGE_NAME);
         placeHolderCard1.setImageResource(imageResource);
 
         // Card 2
         playerHand.addCardToHand(deck.deal());
-        ImageView placeHolderCard2 = (ImageView) findViewById(R.id.placeHolderCard2);
+        ImageView placeHolderCard2 = findViewById(R.id.placeHolderCard2);
         imageResource = getResources().getIdentifier(playerHand.getCardPathFromIndex(1), null, PACKAGE_NAME);
         placeHolderCard2.setImageResource(imageResource);
 
@@ -145,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
         // == DEALER SETUP ==
         // Card 1
         dealerHand.addCardToHand(deck.deal());
-        ImageView dealerPlaceHolderCard1 = (ImageView) findViewById(R.id.dealerPlaceHolderCard1);
+        ImageView dealerPlaceHolderCard1 = findViewById(R.id.dealerPlaceHolderCard1);
         imageResource = getResources().getIdentifier(dealerHand.getCardPathFromIndex(0), null, PACKAGE_NAME);
         dealerPlaceHolderCard1.setImageResource(imageResource);
 
@@ -154,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Card 2 (Face down but still added to the dealers card array)
         dealerHand.addCardToHand(deck.deal());
-        ImageView dealerPlaceHolderCard2 = (ImageView) findViewById(R.id.dealerPlaceHolderCard2);
+        ImageView dealerPlaceHolderCard2 = findViewById(R.id.dealerPlaceHolderCard2);
         imageResource = getResources().getIdentifier("@drawable/card_back", null, PACKAGE_NAME);
         dealerPlaceHolderCard2.setImageResource(imageResource);
 
@@ -174,19 +168,19 @@ public class MainActivity extends AppCompatActivity {
 
         // Remove old cards from the field
         // Player card 3, 4 and 5
-        ImageView placeHolderCard3 = (ImageView) findViewById(R.id.placeHolderCard3);
+        ImageView placeHolderCard3 = findViewById(R.id.placeHolderCard3);
         placeHolderCard3.setAlpha(0.0f);
-        ImageView placeHolderCard4 = (ImageView) findViewById(R.id.placeHolderCard4);
+        ImageView placeHolderCard4 = findViewById(R.id.placeHolderCard4);
         placeHolderCard4.setAlpha(0.0f);
-        ImageView placeHolderCard5 = (ImageView) findViewById(R.id.placeHolderCard5);
+        ImageView placeHolderCard5 = findViewById(R.id.placeHolderCard5);
         placeHolderCard5.setAlpha(0.0f);
 
         // Dealer cards 3, 4 and 5
-        ImageView dealerPlaceHolderCard3 = (ImageView) findViewById(R.id.dealerPlaceHolderCard3);
+        ImageView dealerPlaceHolderCard3 = findViewById(R.id.dealerPlaceHolderCard3);
         dealerPlaceHolderCard3.setAlpha(0.0f);
-        ImageView dealerPlaceHolderCard4 = (ImageView) findViewById(R.id.dealerPlaceHolderCard4);
+        ImageView dealerPlaceHolderCard4 = findViewById(R.id.dealerPlaceHolderCard4);
         dealerPlaceHolderCard4.setAlpha(0.0f);
-        ImageView dealerPlaceHolderCard5 = (ImageView) findViewById(R.id.dealerPlaceHolderCard5);
+        ImageView dealerPlaceHolderCard5 = findViewById(R.id.dealerPlaceHolderCard5);
         dealerPlaceHolderCard5.setAlpha(0.0f);
     }
 
@@ -238,7 +232,7 @@ public class MainActivity extends AppCompatActivity {
     private void dealerMove() {
 
         // First reveal the dealers face down card
-        ImageView dealerPlaceHolderCard2 = (ImageView) findViewById(R.id.dealerPlaceHolderCard2);
+        ImageView dealerPlaceHolderCard2 = findViewById(R.id.dealerPlaceHolderCard2);
         int imageResource = getResources().getIdentifier(dealerHand.getCardPathFromIndex(1),null,PACKAGE_NAME);
         dealerPlaceHolderCard2.setImageResource(imageResource);
 
@@ -249,7 +243,7 @@ public class MainActivity extends AppCompatActivity {
             dealerHand.addCardToHand(deck.deal());
             playRandomCardSlideSound();
 
-            ImageView dealerPlaceHolderCard3 = (ImageView) findViewById(R.id.dealerPlaceHolderCard3);
+            ImageView dealerPlaceHolderCard3 = findViewById(R.id.dealerPlaceHolderCard3);
             int imageResourceCase3 = getResources().getIdentifier(dealerHand.getCardPathFromIndex(2), null, PACKAGE_NAME);
             dealerPlaceHolderCard3.setAlpha(1.0f);
             dealerPlaceHolderCard3.setImageResource(imageResourceCase3);
@@ -269,7 +263,7 @@ public class MainActivity extends AppCompatActivity {
                 dealerHand.addCardToHand(deck.deal());
                 playRandomCardSlideSound();
 
-                ImageView dealerPlaceHolderCard4 = (ImageView) findViewById(R.id.dealerPlaceHolderCard4);
+                ImageView dealerPlaceHolderCard4 = findViewById(R.id.dealerPlaceHolderCard4);
                 int imageResourceCase4 = getResources().getIdentifier(dealerHand.getCardPathFromIndex(3), null, PACKAGE_NAME);
                 dealerPlaceHolderCard4.setAlpha(1.0f);
                 dealerPlaceHolderCard4.setImageResource(imageResourceCase4);
@@ -289,7 +283,7 @@ public class MainActivity extends AppCompatActivity {
                     dealerHand.addCardToHand(deck.deal());
                     playRandomCardSlideSound();
 
-                    ImageView dealerPlaceHolderCard5 = (ImageView) findViewById(R.id.dealerPlaceHolderCard5);
+                    ImageView dealerPlaceHolderCard5 = findViewById(R.id.dealerPlaceHolderCard5);
                     int imageResourceCase5 = getResources().getIdentifier(dealerHand.getCardPathFromIndex(4), null, PACKAGE_NAME);
                     dealerPlaceHolderCard5.setAlpha(1.0f);
                     dealerPlaceHolderCard5.setImageResource(imageResourceCase5);
