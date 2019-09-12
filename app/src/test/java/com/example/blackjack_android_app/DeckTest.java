@@ -1,7 +1,6 @@
 package com.example.blackjack_android_app;
 
 import org.junit.Assert;
-import org.junit.Rule;
 import org.junit.Test;
 
 public class DeckTest {
