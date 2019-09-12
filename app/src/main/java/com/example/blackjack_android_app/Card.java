@@ -2,7 +2,6 @@ package com.example.blackjack_android_app;
 
 public class Card {
 
-    // Object Properties
     private String name;
     private String path;
     private int value;

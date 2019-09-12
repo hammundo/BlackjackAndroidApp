@@ -9,8 +9,6 @@ public class Deck {
     private SecureRandom sr = new SecureRandom();
     private ArrayList<Card> deck = new ArrayList<>();
 
-    // Create card objects.
-    // SPADES
     private Card aceOfSpades = new Card("Ace of Spades",1,"@drawable/ace_of_spades");
     private Card twoOfSpades = new Card("2 of Spades",2,"@drawable/two_of_spades");
     private Card threeOfSpades = new Card("3 of Spades",3,"@drawable/three_of_spades");
@@ -25,7 +23,6 @@ public class Deck {
     private Card queenOfSpades = new Card("Queen of Spades",10,"@drawable/queen_of_spades");
     private Card kingOfSpades = new Card("King of Spades",10,"@drawable/king_of_spades");
 
-    // CLUBS
     private Card aceOfClubs = new Card("Ace of Clubs",1,"@drawable/ace_of_clubs");
     private Card twoOfClubs = new Card("2 of Clubs",2,"@drawable/two_of_clubs");
     private Card threeOfClubs = new Card("3 of Clubs",3,"@drawable/three_of_clubs");
@@ -40,7 +37,6 @@ public class Deck {
     private Card queenOfClubs = new Card("Queen of Clubs",10,"@drawable/queen_of_clubs");
     private Card kingOfClubs = new Card("King of Clubs",10,"@drawable/king_of_clubs");
 
-    // DIAMONDS
     private Card aceOfDiamonds =  new Card("Ace of Diamonds",1,"@drawable/ace_of_diamonds");
     private Card twoOfDiamonds =  new Card("2 of Diamonds",2,"@drawable/two_of_diamonds");
     private Card threeOfDiamonds =  new Card("3 of Diamonds",3,"@drawable/three_of_diamonds");
@@ -55,7 +51,6 @@ public class Deck {
     private Card queenOfDiamonds =  new Card("Queen of Diamonds",10,"@drawable/queen_of_diamonds");
     private Card kingOfDiamonds =  new Card("King of Diamonds",10,"@drawable/king_of_diamonds");
 
-    // HEARTS
     private Card aceOfHearts = new Card("Ace of Hearts",1,"@drawable/ace_of_hearts");
     private Card twoOfHearts = new Card("2 of Hearts",2,"@drawable/two_of_hearts");
     private Card threeOfHearts = new Card("3 of Hearts",3,"@drawable/three_of_hearts");
@@ -70,17 +65,14 @@ public class Deck {
     private Card queenOfHearts = new Card("Queen of Hearts",10,"@drawable/queen_of_hearts");
     private Card kingOfHearts = new Card("King of Hearts",10,"@drawable/king_of_hearts");
 
-    // Remove the Card object at index 0 from the deck ArrayList and then return that object.
     public Card deal() {
         Card dealtCard = deck.get(0);
         deck.remove(0);
         return dealtCard;
     }
 
-    // Fill the deck with one of each card object and then shuffle the deck.
     public void reloadDeck() {
 
-        // ADDING SPADES
         deck.add(aceOfSpades);
         deck.add(twoOfSpades);
         deck.add(threeOfSpades);
@@ -95,7 +87,6 @@ public class Deck {
         deck.add(queenOfSpades);
         deck.add(kingOfSpades);
 
-        // ADDING CLUBS
         deck.add(aceOfClubs);
         deck.add(twoOfClubs);
         deck.add(threeOfClubs);
@@ -110,7 +101,6 @@ public class Deck {
         deck.add(queenOfClubs);
         deck.add(kingOfClubs);
 
-        // ADDING DIAMONDS
         deck.add(aceOfDiamonds);
         deck.add(twoOfDiamonds);
         deck.add(threeOfDiamonds);
@@ -125,7 +115,6 @@ public class Deck {
         deck.add(queenOfDiamonds);
         deck.add(kingOfDiamonds);
 
-        // ADDING HEARTS
         deck.add(aceOfHearts);
         deck.add(twoOfHearts);
         deck.add(threeOfHearts);
@@ -143,7 +132,6 @@ public class Deck {
         shuffle();
     }
 
-    // Using a cryptographically strong random number, shuffle the card objects in the deck ArrayList.
     private void shuffle() {
         Collections.shuffle(deck, sr);
     }
